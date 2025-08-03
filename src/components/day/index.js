@@ -1,10 +1,19 @@
-import { StyleSheet, View, Text } from "react-native"
+import { StyleSheet, Text, TouchableOpacity } from "react-native"
+import { useNavigation } from "@react-navigation/native"
 
 const Day = ({day, isToday, isCurrentMonth}) => {
+    const navigation = useNavigation()
+
+    const handlePress = () => {
+        const dayStr = day.toISOString().split('T')[0]
+        console.log(dayStr)
+        navigation.navigate('Tasks', {date: dayStr})
+    }
+
     return(
-        <View style={styles.day}>
+        <TouchableOpacity style={styles.day} onPress={handlePress}>
             <Text style={[styles.text,isToday ? styles.Today : null, isCurrentMonth ? null : styles.other]}>{day.getDate()}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 

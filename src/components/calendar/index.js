@@ -96,11 +96,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    backgroundColor: '#262626',
     width: "100%",
   },
   calendarWrapper: {
-    width: 280,
+    flex: 1,
+    paddingHorizontal: 10,
+    width: 320, // или 300, или % от экрана
     },
 })
 
